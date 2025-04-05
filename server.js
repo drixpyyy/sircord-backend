@@ -7,13 +7,18 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "*", // In production, change this to your Vercel frontend URL
-    methods: ["GET", "POST"]
+    origin: ["https://sirmemecord.vercel.app/", "http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://sirmemecord.vercel.app/", "http://localhost:3000"],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Store users and messages in memory (for a real app, use a database)
