@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: ["https://sirmemecord.vercel.app/", "http://localhost:3000"],
+    origin: ["https://sirmemecord.vercel.app/", "https://sircord-backend.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -15,7 +15,7 @@ const io = socketIo(server, {
 
 // Middleware
 app.use(cors({
-  origin: ["https://sirmemecord.vercel.app/", "http://localhost:3000"],
+  origin: ["https://sirmemecord.vercel.app/", "https://sircord-backend.onrender.com"],
   methods: ["GET", "POST"],
   credentials: true
 }));
